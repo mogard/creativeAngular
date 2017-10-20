@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="index.js"></script>
+ <script
+        src="http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="main.css">
+  <meta charset="utf-8">
+  <title>Desktop Theme Generator</title>
+</head>
+<body>
+  <div ng-app='app' ng-controller='mainCtrl'>
+
+    <h1>Desktop Theme Generator</h1>
+
+    <div id="submit">
+    <form name='pictureForm' ng-submit='getPictures()'>
+      <input placeholder='Search Words' ng-model='picture.keywords'/>
+      <button type='submit'>Get Theme</button>
+    </form>
+    </div>    
+
+    <ul class='picture_list'>
+      <li ng-repeat='pictureInfo in picturesInfo'>
+        <div class="Picture">
+        <img ng-src="{{pictureInfo.pictureURL}}" />
+        <h4>By {{pictureInfo.author}}</h4>  
+        <a ng-href="{{pictureInfo.downloadURL}}">Download</a> 
+      </div>
+
+      </li>
+    </ul>
+  </div>
+
+<div id="footer">
+<h4>Photos provided by Unsplash<h4>
+</div>
+</body>
+</html>
